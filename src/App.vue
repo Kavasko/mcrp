@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button class="closeBtn">X</button>
+    <button v-on:click="closeBrowser" class="closeBtn">X</button>
     <img alt="MCRP logo" src="./assets/mcrp_logo.png">
     <HelloWorld msg="Welcome to Mafia City Roleplay!"/>
     <div style="background-color: #fff;">
@@ -33,15 +33,19 @@ export default {
     Communication,
     Jobs,
     FAQ
+  },
+  methods: {
+    closeBrowser: function() {
+      mp.trigger("closeBrowser");
+    }
   }
 }
 </script>
 
 <style>
 body {
-  background-image: url("./assets/gta5mcrp.jpg");
+  background-color: transparent !important;
 }
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
